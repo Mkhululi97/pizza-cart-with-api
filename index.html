@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pizza-cart-with-api</title>
+    <!-- ***** CSS ***** -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- ***** CSS ***** -->
+    <!-- ***** EXTERNAL JS ***** -->
+    <script src="script.js" defer></script>
+    <!-- ***** EXTERNAL JS ***** -->
+    <!-- ***** ALPINE ***** -->
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <!-- ***** ALPINE ***** -->
+    <!-- ***** AXIOS ***** -->
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <!-- ***** AXIOS ***** -->
+  </head>
+  <body x-data="pizzaCartWithAPIWidget">
+    <h1 x-text="title"></h1>
+    <table>
+      <tbody>
+        <template x-for="pizza in pizzas">
+          <tr class="pizza-row">
+            <td class="img-container">
+              <img src="pizza-img.png" alt="pizza icon" />
+            </td>
+            <td x-text="pizza.flavour">flavour</td>
+            <td x-text="pizza.price">price</td>
+            <td><button class="btn">Buy</button></td>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+  </body>
+</html>
