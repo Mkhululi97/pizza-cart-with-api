@@ -21,13 +21,50 @@ html {
 img {
   width: 100%;
 }
-.btn {
+.btn,
+.pay-btn {
   padding: 7px 25px;
+}
+.cart-btn {
+  padding: 3px 6px;
+  font-size: 1.8rem;
+}
+input {
+  padding: 8px;
 }
 td {
   font-size: 2rem;
 }
-tr:nth-child(even) {
+.pizza-list:nth-child(even) {
   background-color: #eae2b7;
   color: #003049;
 }
+
+/* ++++++ +++++ */
+table {
+  border-collapse: collapse;
+}
+.table-cart {
+  background: #003049;
+  padding: 1em;
+  color: #fff;
+  border: 1px solid #eae2b7;
+}
+.table-cart th {
+  font-size: 1.5rem;
+}
+.table-cart tr td {
+  border: 1px solid #eae2b7;
+}
+th,
+td {
+  padding: 1rem;
+}
+th {
+  text-align: left;
+}
+.qty,
+.qty-column {
+  text-align: center;
+}
+/* ++++++ +++++ */

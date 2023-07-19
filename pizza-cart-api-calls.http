@@ -17,7 +17,7 @@ content-type: application/json
 
 {
 	"cart_code" : "g9Q90A1Lk4",
-	"pizza_id" : 23
+	"pizza_id" : 8
 }
 
 ### Remove a pizza from the cart
@@ -26,6 +26,6 @@ content-type: application/json
 
 {
 	"cart_code" : "g9Q90A1Lk4",
-	"pizza_id" : 23
+	"pizza_id" : 18
 
 }

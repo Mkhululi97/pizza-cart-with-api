@@ -19,16 +19,60 @@
   </head>
   <body x-data="pizzaCartWithAPIWidget">
     <h1 x-text="title"></h1>
+
+    <!--***** SHOW CART ***** -->
+    <table class="table-cart">
+      <tbody>
+        <tr>
+          <th>Flavour</th>
+          <th>Size</th>
+          <th>Price</th>
+          <th class="qty">Qty</th>
+          <th>Total</th>
+        </tr>
+        <template x-for="cartPizza in cartPizzas">
+          <tr>
+            <td x-text="cartPizza.flavour">Flavour</td>
+            <td x-text="cartPizza.size">small</td>
+            <td x-text="cartPizza.price">57.88</td>
+            <td class="qty-column">
+              <button class="cart-btn">+</button>x
+              <span x-text="cartPizza.qty">3</span
+              ><button class="cart-btn">-</button>
+            </td>
+            <td x-text="cartPizza.total.toFixed(2)">200</td>
+          </tr>
+        </template>
+        <tr>
+          <td colspan="4">Total</td>
+          <td>R <span x-text="cartTotal.toFixed(2)"></span></td>
+        </tr>
+        <tr>
+          <td colspan="3">Pay now</td>
+          <td>
+            <input type="text" />
+          </td>
+          <td>
+            <button class="pay-btn">pay</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!--***** SHOW CART ***** -->
+
+    <!--***** SHOW PIZZAS ***** -->
     <table>
       <tbody>
         <template x-for="pizza in pizzas">
-          <tr class="pizza-row">
+          <tr class="pizza-list">
             <td class="img-container">
               <img src="pizza-img.png" alt="pizza icon" />
             </td>
             <td x-text="pizza.flavour">flavour</td>
             <td x-text="pizza.price">price</td>
-            <td><button class="btn">Buy</button></td>
+            <td>
+              <button class="btn" @click="addPizzaToCart(pizza.id)">Buy</button>
+            </td>
           </tr>
         </template>
       </tbody>
