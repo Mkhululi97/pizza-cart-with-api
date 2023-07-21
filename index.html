@@ -16,15 +16,33 @@
     <!-- ***** AXIOS ***** -->
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <!-- ***** AXIOS ***** -->
+    <style>
+      [x-cloak] {
+        display: none;
+      }
+    </style>
   </head>
-  <body x-data="pizzaCartWithAPIWidget">
+  <body x-data="pizzaCartWithAPIWidget" x-cloak>
     <h1 x-text="title"></h1>
     <div>
+      <input
+        type="text"
+        placeholder="please enter username"
+        x-model="username"
+      />
+      <button class="login-btn" @click="login">login</button>
+      <button
+        class="login-btn"
+        @click="logout"
+        x-show="username && cartId!=='No username to create cart for'"
+      >
+        logout
+      </button>
       <p>
         Username:
         <span x-text="username"></span>
       </p>
-      <p>
+      <p x-show="cartId">
         Cart code:
         <span x-text="cartId"></span>
       </p>
@@ -66,7 +84,7 @@
         <tr>
           <td colspan="3">Pay now</td>
           <td>
-            <input x-model="paymentAmount" type="text" />
+            <input x-model="paymentAmount" type="number" />
           </td>
           <td>
             <button class="pay-btn" @click="payForCart()">pay</button>
@@ -77,22 +95,29 @@
     <!--***** SHOW CART ***** -->
 
     <!--***** SHOW PIZZAS ***** -->
-    <h2 class="pizzas-section">Pizzas</h2>
-    <table>
-      <tbody>
-        <template x-for="pizza in pizzas">
-          <tr class="pizza-list">
-            <td class="img-container">
-              <img src="pizza-img.png" alt="pizza icon" />
-            </td>
-            <td x-text="pizza.flavour">flavour</td>
-            <td x-text="pizza.price">price</td>
-            <td>
-              <button class="btn" @click="addPizzaToCart(pizza.id)">Buy</button>
-            </td>
-          </tr>
-        </template>
-      </tbody>
-    </table>
+    <div
+      class="pizzas"
+      x-show="username && cartId!=='No username to create cart for'"
+    >
+      <h2 class="pizzas-section">Pizzas</h2>
+      <table>
+        <tbody>
+          <template x-for="pizza in pizzas">
+            <tr class="pizza-list">
+              <td class="img-container">
+                <img src="pizza-img.png" alt="pizza icon" />
+              </td>
+              <td x-text="pizza.flavour">flavour</td>
+              <td x-text="pizza.price">price</td>
+              <td>
+                <button class="btn" @click="addPizzaToCart(pizza.id)">
+                  Buy
+                </button>
+              </td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+    </div>
   </body>
 </html>
