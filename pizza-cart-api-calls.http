@@ -26,7 +26,7 @@ content-type: application/json
 
 {
 	"cart_code" : "g9Q90A1Lk4",
-	"pizza_id" : 2
+	"pizza_id" : 4
 
 }
 
@@ -36,6 +36,6 @@ content-type: application/json
 
 {
 	"cart_code" : "g9Q90A1Lk4",
-	"amount" : 400
+	"amount" : 4003
 
 }

@@ -53,6 +53,10 @@ table {
 .table-cart th {
   font-size: 1.5rem;
 }
+.msg,
+p {
+  font-size: 1.8rem;
+}
 .table-cart tr td {
   border: 1px solid #eae2b7;
 }

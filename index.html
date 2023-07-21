@@ -19,9 +19,19 @@
   </head>
   <body x-data="pizzaCartWithAPIWidget">
     <h1 x-text="title"></h1>
-
+    <div>
+      <p>
+        Username:
+        <span x-text="username"></span>
+      </p>
+      <p>
+        Cart code:
+        <span x-text="cartId"></span>
+      </p>
+    </div>
+    <p class="msg" x-text="msg"></p>
     <!--***** SHOW CART ***** -->
-    <table class="table-cart">
+    <table class="table-cart" x-show="cartTotal > 0">
       <tbody>
         <tr>
           <th>Flavour</th>
@@ -56,10 +66,10 @@
         <tr>
           <td colspan="3">Pay now</td>
           <td>
-            <input type="text" />
+            <input x-model="paymentAmount" type="text" />
           </td>
           <td>
-            <button class="pay-btn">pay</button>
+            <button class="pay-btn" @click="payForCart()">pay</button>
           </td>
         </tr>
       </tbody>
