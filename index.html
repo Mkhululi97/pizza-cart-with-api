@@ -36,9 +36,15 @@
             <td x-text="cartPizza.size">small</td>
             <td x-text="cartPizza.price">57.88</td>
             <td class="qty-column">
-              <button class="cart-btn">+</button>x
-              <span x-text="cartPizza.qty">3</span
-              ><button class="cart-btn">-</button>
+              <button class="cart-btn" @click="addPizzaToCart(cartPizza.id)">
+                +</button
+              >x <span x-text="cartPizza.qty">3</span
+              ><button
+                class="cart-btn"
+                @click="removePizzaFromCart(cartPizza.id)"
+              >
+                -
+              </button>
             </td>
             <td x-text="cartPizza.total.toFixed(2)">200</td>
           </tr>
@@ -61,6 +67,7 @@
     <!--***** SHOW CART ***** -->
 
     <!--***** SHOW PIZZAS ***** -->
+    <h2 class="pizzas-section">Pizzas</h2>
     <table>
       <tbody>
         <template x-for="pizza in pizzas">

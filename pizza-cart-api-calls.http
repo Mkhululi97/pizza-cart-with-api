@@ -26,6 +26,16 @@ content-type: application/json
 
 {
 	"cart_code" : "g9Q90A1Lk4",
-	"pizza_id" : 18
+	"pizza_id" : 2
+
+}
+
+### Pay for a pizza from the cart
+POST https://pizza-api.projectcodex.net/api/pizza-cart/pay
+content-type: application/json
+
+{
+	"cart_code" : "g9Q90A1Lk4",
+	"amount" : 400
 
 }

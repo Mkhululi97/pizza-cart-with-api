@@ -40,7 +40,7 @@ td {
   color: #003049;
 }
 
-/* ++++++ +++++ */
+/* +++++++++++ */
 table {
   border-collapse: collapse;
 }
@@ -67,4 +67,10 @@ th {
 .qty-column {
   text-align: center;
 }
-/* ++++++ +++++ */
+.pizzas-section {
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding-block: 2rem;
+}
+/* +++++++++++ */
