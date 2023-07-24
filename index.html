@@ -24,32 +24,39 @@
   </head>
   <body x-data="pizzaCartWithAPIWidget" x-cloak>
     <h1 x-text="title"></h1>
-    <div>
-      <input
-        type="text"
-        placeholder="please enter username"
-        x-model="username"
-      />
-      <button class="login-btn" @click="login">login</button>
-      <button
-        class="login-btn"
-        @click="logout"
-        x-show="username && cartId!=='No username to create cart for'"
-      >
-        logout
-      </button>
-      <p>
-        Username:
-        <span x-text="username"></span>
-      </p>
-      <p x-show="cartId">
-        Cart code:
-        <span x-text="cartId"></span>
-      </p>
+    <div class="login details">
+      <div>
+        <input
+          type="text"
+          placeholder="please enter username"
+          x-ref="username"
+        />
+        <button
+          class="login-btn"
+          x-show="!logged_in"
+          @click="username=$refs.username.value,login(),$refs.username.value=''"
+        >
+          login
+        </button>
+        <button class="login-btn" @click="logout" x-show="logged_in">
+          logout
+        </button>
+        <div class="user_details" x-show="logged_in">
+          <p>
+            Username:
+            <span x-text="username"></span>
+          </p>
+          <p x-show="cartId">
+            Cart code:
+            <span x-text="cartId"></span>
+          </p>
+        </div>
+      </div>
+      <p class="msg" x-text="msg"></p>
     </div>
-    <p class="msg" x-text="msg"></p>
+
     <!--***** SHOW CART ***** -->
-    <table class="table-cart" x-show="cartTotal > 0">
+    <table class="table-cart" x-show="cartTotal > 0 && logged_in">
       <tbody>
         <tr>
           <th>Flavour</th>
@@ -95,29 +102,41 @@
     <!--***** SHOW CART ***** -->
 
     <!--***** SHOW PIZZAS ***** -->
-    <div
-      class="pizzas"
-      x-show="username && cartId!=='No username to create cart for'"
-    >
-      <h2 class="pizzas-section">Pizzas</h2>
+    <div class="pizzas container" x-show="logged_in">
+      <h2 class="pizzas-section">Choose From Our Delicious Selection</h2>
       <table>
         <tbody>
           <template x-for="pizza in pizzas">
             <tr class="pizza-list">
-              <td class="img-container">
-                <img src="pizza-img.png" alt="pizza icon" />
-              </td>
-              <td x-text="pizza.flavour">flavour</td>
-              <td x-text="pizza.price">price</td>
-              <td>
-                <button class="btn" @click="addPizzaToCart(pizza.id)">
-                  Buy
-                </button>
-              </td>
+              <div class="pizza-details">
+                <td class="img-container">
+                  <img src="pizza-img.png" alt="pizza icon" />
+                </td>
+                <td x-text="pizza.flavour"></td>
+                <td class="more-details">
+                  <span class="pizza-type" x-text="pizza.type"></span>
+                  <span class="pizza-size" x-text="pizza.size"></span>
+                </td>
+                <td>R<span x-text="pizza.price">price</span></td>
+                <td>
+                  <button class="btn" @click="addPizzaToCart(pizza.id)">
+                    <ion-icon name="cart-outline"></ion-icon>
+                    Add To Cart
+                  </button>
+                </td>
+              </div>
             </tr>
           </template>
         </tbody>
       </table>
     </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>
