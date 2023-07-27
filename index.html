@@ -101,6 +101,48 @@
     </table>
     <!--***** SHOW CART ***** -->
 
+    <!--***** FEATURED SECTION ***** -->
+    <div class="container" x-show="logged_in">
+      <h2 class="pizzas-section">our featured selection of pizza</h2>
+      <div class="featured-pizzas">
+        <div class="first-featured-pizza">
+          <div class="img-container">
+            <img src="/images/meaty.png" alt="pizza icon" />
+          </div>
+          <h4 class="h4-heading">margeritha</h4>
+          <p class="featured-pizzas-paragraph">
+            Pizza with 3 toppings max. 2 or less meat topping. 3 or less other
+            toppings.
+          </p>
+        </div>
+
+        <!-- SECOND FEATURED PIZZA -->
+        <div class="second-featured-pizza">
+          <div class="img-container">
+            <img src="/images/chicken.png" alt="pizza icon" />
+          </div>
+          <h4 class="h4-heading">Chicken & Mushroom</h4>
+          <p class="featured-pizzas-paragraph">
+            Large Chicken & Mushroom pizza with 3 toppings max. 3 toppings max.
+            3 or less other toppings.
+          </p>
+        </div>
+        <!-- THIRD FEATURED PIZZA -->
+        <div class="third-featured-pizza">
+          <div class="img-container">
+            <img src="/images/veggie.png" alt="pizza icon" />
+          </div>
+          <h4 class="h4-heading">Garlic & Mushroom</h4>
+          <p class="featured-pizzas-paragraph">
+            Pizza with 3 toppings max. 2 or less meat topping. 3 or less other
+            toppings.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!--***** FEATURED SECTION ***** -->
+
     <!--***** SHOW PIZZAS ***** -->
     <div class="pizzas container" x-show="logged_in">
       <h2 class="pizzas-section">Choose From Our Delicious Selection</h2>
@@ -110,7 +152,7 @@
             <tr class="pizza-list">
               <div class="pizza-details">
                 <td class="img-container">
-                  <img src="pizza-img.png" alt="pizza icon" />
+                  <img src="/images/pizza-img.png" alt="pizza icon" />
                 </td>
                 <td x-text="pizza.flavour"></td>
                 <td class="more-details">
@@ -130,6 +172,19 @@
         </tbody>
       </table>
     </div>
+    <footer class="footer" x-show="logged_in">
+      <div class="contact-us">
+        <p>Contact us at: (021)-541-100 twitter</p>
+        <p>/fb</p>
+        <p>/insta</p>
+        <p>@perfectpizza</p>
+      </div>
+      <div class="address">
+        <p>Pizza Plaza</p>
+        <p>Dough Road</p>
+        <p>Base Town</p>
+      </div>
+    </footer>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"

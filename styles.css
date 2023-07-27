@@ -121,4 +121,43 @@ th {
   font-weight: 700;
   padding-block: 2rem;
 }
+.featured-pizzas {
+  display: flex;
+  padding-block-end: 65px;
+}
+
+.first-featured-pizza,
+.second-featured-pizza,
+.third-featured-pizza {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.first-featured-pizza,
+.third-featured-pizza {
+  background-color: #eae2b7;
+  color: #003049;
+  padding: 20px;
+}
+.second-featured-pizza {
+  padding: 20px;
+}
+.h4-heading {
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-block-start: 10px;
+  margin-block-end: 20px;
+}
+.featured-pizzas-paragraph {
+  font-size: 12px;
+}
+.footer {
+  background-color: #eae2b7;
+  color: #003049;
+  padding: 60px;
+  display: flex;
+  justify-content: space-between;
+  margin-block: 45px;
+}
 /* +++++++++++ */
